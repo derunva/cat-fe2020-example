@@ -1,0 +1,18 @@
+mixin category-link(category)
+  -
+    var uk = 'а,б,в,г,ґ,д,е,є,ж,з,и,і,ї,й,к,л,м,н,о,п,р,с,т,у,ф,х,ц,ч,ш,щ,ь,ю,я'
+      .split(',')
+    var en = 'A B V H G D E Ye Zh Z Y I Yi Y K L M N O P R S T U F Kh Ts Ch Sh Shch Yu Ya'
+      .toLowerCase()
+      .split(' ')
+    var link = ''
+    for (var i = 0; i < category.name.length; i++) {
+      var index = uk.indexOf(category.name[i].toLowerCase())
+      console.log(index);
+      link += en[index]
+    }
+    link +='.html'
+  a.category-link(href=link)
+    .category-link--name #{category.name}
+    .category-link--image
+      img(src=category.image alt="alternative text")
